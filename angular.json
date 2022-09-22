@@ -35,7 +35,8 @@
               "src/styles.css",
               "./node_modules/@eui/styles/dist/styles/eui.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "preserveSymlinks": true
           },
           "configurations": {
             "production": {
