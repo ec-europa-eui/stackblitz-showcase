@@ -2,14 +2,7 @@ import { Component, OnDestroy } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { getUserState, UserState } from '@eui/core';
 import { Observable, Subscription } from 'rxjs';
-import {
-    CONFIG_TOKEN,
-    UserService,
-    EuiAppConfig,
-    UserDetails,
-    UserPreferences,
-    I18nService,
-} from '@eui/core';
+import { I18nService } from '@eui/core';
 
 @Component({
     selector: 'app-root',
