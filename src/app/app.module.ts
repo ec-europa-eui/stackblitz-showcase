@@ -11,6 +11,7 @@ import { EuiCardModule } from '@eui/components/eui-card';
 import { EuiLabelModule } from '@eui/components/atoms/eui-label';
 import { CommonModule } from '@angular/common';
 import { CoreModule } from './core/core.module';
+import { EuiAppModule, EuiNotificationsModule } from '@eui/components/layout';
 
 @NgModule({
   imports: [
@@ -22,6 +23,8 @@ import { CoreModule } from './core/core.module';
     EuiIconModule,
     EuiCardModule,
     EuiLabelModule,
+    EuiAppModule,
+    EuiNotificationsModule,
   ],
   declarations: [AppComponent, HelloComponent],
   bootstrap: [AppComponent],
