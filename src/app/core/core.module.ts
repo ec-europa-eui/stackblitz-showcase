@@ -1,0 +1,39 @@
+import { NgModule } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { HttpClientModule } from '@angular/common/http';
+import {
+    CoreModule as EuiCoreModule,
+    translateConfig,
+    CoreModuleEffects,
+    EUI_CONFIG_TOKEN,
+} from '@eui/core';
+
+import { appConfig } from '../../config';
+import { environment } from '../../environments/environment';
+
+import { REDUCER_TOKEN, getReducers, metaReducers } from './reducers';
+
+@NgModule({
+    imports: [
+        HttpClientModule,
+        EuiCoreModule.forRoot(),
+        EffectsModule.forRoot([...CoreModuleEffects]),
+        TranslateModule.forRoot(translateConfig),
+        StoreModule.forRoot(REDUCER_TOKEN, { metaReducers }),
+    ],
+    providers: [
+        {
+            provide: REDUCER_TOKEN,
+            deps: [],
+            useFactory: getReducers,
+        },
+        {
+            provide: EUI_CONFIG_TOKEN,
+            useValue: { appConfig: appConfig, environment: environment }
+        },
+    ]
+})
+export class CoreModule {
+}
