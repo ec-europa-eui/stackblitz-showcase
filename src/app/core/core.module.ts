@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { APP_BASE_HREF } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { TranslateModule } from '@ngx-translate/core';
 import { StoreModule } from '@ngrx/store';
@@ -37,6 +38,9 @@ import { REDUCER_TOKEN, getReducers, metaReducers } from './reducers';
             provide: EUI_CONFIG_TOKEN,
             useValue: { appConfig: appConfig, environment: environment }
         },
+        {
+            provide: APP_BASE_HREF, useValue: '/'
+        }
     ]
 })
 export class CoreModule {
