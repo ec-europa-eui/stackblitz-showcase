@@ -38,9 +38,8 @@ export class AppComponent implements OnDestroy {
     }
     ngOnInit() {
         this.getByLang().subscribe((lang) => {
-            console.log(lang, "testing");
         });
-        }
+    }
     
 
     ngOnDestroy() {
