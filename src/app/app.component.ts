@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import { getUserState, UserState } from '@eui/core';
 import { Observable, Subscription } from 'rxjs';
 import { I18nService } from '@eui/core';
+import { StorageService, UxAppShellService,LocalForageService } from '@eui/core';
 
 @Component({
     selector: 'app-root',
@@ -25,12 +26,15 @@ export class AppComponent implements OnDestroy {
         { label: 'Title label 4', subLabel: 'Subtitle label' },
     ];
 
-    constructor(private store: Store<any>,protected i18nService: I18nService,) {
+    constructor(private store: Store<any>,protected i18nService: I18nService, private localForage : LocalForageService,
+    ) {
         this.userState = <any>this.store.select(getUserState);
         this.subs.push(this.userState.subscribe((user: UserState) => {
             this.userInfos = { ...user };
         }));
         this.i18nService.init();
+        this.localForage.set('name', 'John');
+
     }
 
     ngOnDestroy() {
