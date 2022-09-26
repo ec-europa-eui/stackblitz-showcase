@@ -13,6 +13,8 @@ import { CommonModule } from '@angular/common';
 import { CoreModule } from './core/core.module';
 import { EuiAppModule, EuiNotificationsModule } from '@eui/components/layout';
 
+
+
 @NgModule({
   imports: [
     CoreModule,
@@ -28,5 +30,5 @@ import { EuiAppModule, EuiNotificationsModule } from '@eui/components/layout';
   ],
   declarations: [AppComponent, HelloComponent],
   bootstrap: [AppComponent],
-})
+  })
 export class AppModule {}
