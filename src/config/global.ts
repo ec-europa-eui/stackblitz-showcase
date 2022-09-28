@@ -1,5 +1,7 @@
 import { GlobalConfig } from '@eui/core';
 import { environment } from '../environments/environment';  
+import { LocaleServiceConfig } from '@eui/core';
+
 
 export const GLOBAL: GlobalConfig = {
     appTitle: 'CSDR-app',
@@ -9,8 +11,7 @@ export const GLOBAL: GlobalConfig = {
             languages: ['en', 'fr'],
         },
         i18nLoader: {
-            i18nFolders: ['i18n'],
-            i18nServices: [`${environment.apiBaseUrl}translations?lang=`] 
+            i18nFolders: ['i18n-eui', 'i18n', 'i18n-ecl'],
         },
     },
     user: {
@@ -19,4 +20,10 @@ export const GLOBAL: GlobalConfig = {
             lang: 'en',
         },
     },
+    locale: {
+        available: ['el-GR'],
+        bindWithTranslate: false,
+
+     },
+   
 };
