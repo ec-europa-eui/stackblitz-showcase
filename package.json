@@ -26,6 +26,7 @@
     "@eui/core": "^13.1.13",
     "@eui/components": "^13.1.13",
     "@eui/styles-base": "^13.0.0",
+    "@eui/styles": "^13.0.0",
     "@ngx-translate/core": "^13.0.0",
     "@ngrx/store": "^13.0.0",
     "@ngrx/effects": "^13.0.0",
