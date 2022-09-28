@@ -12,9 +12,11 @@ import { EuiLabelModule } from '@eui/components/atoms/eui-label';
 import { CommonModule } from '@angular/common';
 import { CoreModule } from './core/core.module';
 import { EuiAppModule, EuiNotificationsModule } from '@eui/components/layout';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   imports: [
+    BrowserAnimationsModule,
     CoreModule,
     CommonModule,
     BrowserModule,
