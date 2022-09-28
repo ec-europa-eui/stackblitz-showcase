@@ -1,12 +1,10 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, VERSION } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { getUserState, UserState } from '@eui/core';
 import { Observable, Subscription } from 'rxjs';
 import { I18nService } from '@eui/core';
 import { LANG_PARAM_KEY } from '@eui/core';
 import { HttpClient } from '@angular/common/http';
-
-
 
 @Component({
     selector: 'app-root',
@@ -35,6 +33,7 @@ export class AppComponent implements OnDestroy {
             this.userInfos = { ...user };
         }));
         this.i18nService.init();
+        console.log('Angular version is:', VERSION.full);
     }
     ngOnInit() {
         this.getByLang().subscribe((lang) => {
