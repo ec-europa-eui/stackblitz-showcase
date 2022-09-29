@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, VERSION } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { getUserState, UserState } from '@eui/core';
 import { Observable, Subscription } from 'rxjs';
@@ -10,7 +10,6 @@ import {
     getCurrencySymbol,getLocaleCurrencyCode,getLocaleCurrencyName,getLocaleCurrencySymbol,getLocaleDateFormat,getLocaleDateTimeFormat,FormatWidth
    }
     from '@angular/common';
-
 
 
 
@@ -34,14 +33,15 @@ export class AppComponent implements OnDestroy {
         { label: 'Title label 3', subLabel: 'Subtitle label' },
         { label: 'Title label 4', subLabel: 'Subtitle label' },
     ];
-
     constructor(private store: Store<any>,protected i18nService: I18nService,protected http: HttpClient,locale: LocaleService,
     ) {
+
         this.userState = <any>this.store.select(getUserState);
         this.subs.push(this.userState.subscribe((user: UserState) => {
             this.userInfos = { ...user };
         }));
         this.i18nService.init();
+
         locale.init();
         console.log(locale.currentLocale,"currentlocale")
         console.log(getCurrencySymbol("USD", "wide"),"getCurrencySymbol");
@@ -56,4 +56,5 @@ export class AppComponent implements OnDestroy {
         this.subs.forEach((s: Subscription) => s.unsubscribe());
     }
     
+
 }
