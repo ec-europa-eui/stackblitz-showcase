@@ -19,6 +19,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
 
+
+
 @NgModule({
   imports: [
     CoreModule,
@@ -52,6 +54,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 ],
   declarations: [AppComponent, HelloComponent],
   bootstrap: [AppComponent],
-  
+
 })
+
 export class AppModule {}
