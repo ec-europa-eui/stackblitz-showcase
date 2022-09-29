@@ -16,9 +16,9 @@ import { appConfig } from '../../config';
 import { environment } from '../../environments/environment';
 import { REDUCER_TOKEN, getReducers, metaReducers } from './reducers';
 import * as localForage from 'localforage';
-import { CoreModule as UxCoreModule, StorageService, SessionStorageService,LocalStorageService, 
+import { StorageService, SessionStorageService,LocalStorageService, 
     AsyncStorageService,
-     LocalForageService,
+    LocalForageService,
     LOCAL_FORAGE_SERVICE_CONFIG_TOKEN,
     
 } from '@eui/core';
@@ -48,7 +48,12 @@ import { CoreModule as UxCoreModule, StorageService, SessionStorageService,Local
         {
             provide: APP_BASE_HREF, useValue: '/'
         },
+        SessionStorageService,
+        LocalStorageService,
+        { provide: StorageService, useExisting: LocalStorageService },
+         LocalForageService,
         { provide: AsyncStorageService, useExisting: LocalForageService },
+
     ]
 })
 export class CoreModule {
