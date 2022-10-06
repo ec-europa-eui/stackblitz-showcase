@@ -16,6 +16,7 @@ import { CachePreventionInterceptor } from '@eui/core';
 import { CorsSecurityInterceptor } from '@eui/core';
 import { AddLangParamInterceptor } from '@eui/core';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { EuLoginSessionTimeoutHandlingInterceptor } from '@eui/core';
 
 
 
@@ -47,7 +48,12 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
         provide: HTTP_INTERCEPTORS,
         useClass: AddLangParamInterceptor,
         multi: true,
-    }
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: EuLoginSessionTimeoutHandlingInterceptor,
+      multi: true,
+  }
     
 ],
   declarations: [AppComponent, HelloComponent],
