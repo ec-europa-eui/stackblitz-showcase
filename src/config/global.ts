@@ -1,4 +1,7 @@
 import { GlobalConfig } from '@eui/core';
+import {EuiAppConfig} from '@eui/core';
+
+
 
 export const GLOBAL: GlobalConfig = {
     appTitle: 'CSDR-app',
@@ -8,11 +11,11 @@ export const GLOBAL: GlobalConfig = {
             languages: ['en', 'fr'],
         },
         i18nLoader: {
-            i18nFolders: ['i18n'],
+            i18nFolders: ['i18n-eui', 'i18n', 'i18n-ecl'],
             i18nResources: [{
-                prefix: 'other-assets/i18n/',
-                suffix: '.json',
-           }],
+                prefix: 'api/translations/',
+                compileTranslations: 'CompileTranslations_ID',
+            }],
         },
     },
     user: {
@@ -22,3 +25,17 @@ export const GLOBAL: GlobalConfig = {
         },
     },
 };
+
+
+export function CompileTranslations(translations: any): any {
+    const result = {};
+    translations.forEach((translation: any) => {
+        // extract the key and value from the translation object
+        const key = translation['key'];
+        const value = translation['value'];
+        if (key && value) {
+            result[key] = value;
+        }
+    });
+    return result;
+}
