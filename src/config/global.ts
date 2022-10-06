@@ -1,5 +1,4 @@
 import { GlobalConfig } from '@eui/core';
-import { environment } from '../environments/environment';  
 
 export const GLOBAL: GlobalConfig = {
     appTitle: 'CSDR-app',
@@ -10,7 +9,10 @@ export const GLOBAL: GlobalConfig = {
         },
         i18nLoader: {
             i18nFolders: ['i18n'],
-            i18nServices: [`${environment.apiBaseUrl}translations?lang=`] 
+            i18nResources: [{
+                prefix: 'other-assets/i18n/',
+                suffix: '.json',
+           }],
         },
     },
     user: {
