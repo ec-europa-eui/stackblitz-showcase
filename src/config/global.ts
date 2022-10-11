@@ -19,11 +19,6 @@ export const GLOBAL: GlobalConfig = {
             dashboard: { },
             lang: 'en',
         },
-    },
-    locale: {
-        available: ['el-GR'],
-        bindWithTranslate: false,
-
-     },
+    }
    
 };
